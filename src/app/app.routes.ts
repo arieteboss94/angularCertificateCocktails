@@ -4,7 +4,7 @@ import { CocktailsDetailComponent } from './cocktails/cocktails-detail/cocktails
 
 export const routes: Routes = [
   {path: "cocktails", component: CocktailsListComponent},
-  {path: "cocktails/:cocktailId", component: CocktailsDetailComponent},
-  {path: "**", component: CocktailsListComponent},
+  {path: "cocktails/:id", component: CocktailsDetailComponent},
   {path: '', redirectTo: "cocktails", pathMatch: "full"},
+  {path: '**', component: CocktailsListComponent},
 ];

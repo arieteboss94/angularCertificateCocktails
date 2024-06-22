@@ -1,0 +1,11 @@
+app-cocktails-tab{
+    display: block;
+    width: 49%;
+    margin: 5px 0;
+}
+.cocktails-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

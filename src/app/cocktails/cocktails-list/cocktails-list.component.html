@@ -1,1 +1,10 @@
-<p>cocktails-list works!</p>
+<section class="cocktail-list">
+    <app-cocktails-filter />
+    <div class="cocktails-container" *ngIf="cocktails && cocktails.length; else noCocktail">
+        <app-cocktails-tab *ngFor="let cocktail of cocktails; index as i" [cocktail]="cocktail" [isFavourite]="cocktailsFavourites().indexOf(cocktail.id) > -1" (setFavourite)="setFavourite(cocktail.id, $event)"/>
+    </div>
+
+    <ng-template #noCocktail>
+        No cocktails available
+    </ng-template>
+</section>
