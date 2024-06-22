@@ -56,10 +56,13 @@
                     background-color: blue;
                 }
             }
-            .cocktail-ingredients{
+            .cocktail-ingredients li,
+            .cocktail-instructions{
                 font-size: 13px;
                 font-weight: normal;
+                max-width: 200px;
             }
+
         }
     }
 }

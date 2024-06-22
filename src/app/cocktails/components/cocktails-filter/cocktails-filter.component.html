@@ -1,1 +1,4 @@
-<p>cocktails-filter works!</p>
+<div class="cocktail-filter">
+    <h2>Filter Cocktail</h2>
+    <input type="text" #filter (keyup)="onChangeValue(filter.value)" />
+</div>

@@ -22,9 +22,9 @@ export class CocktailsListComponent implements OnInit, OnDestroy {
   constructor(private cocktailsService: CocktailsService){}
 
   ngOnInit(): void {
-    this.subs.add(this.cocktailsService.getCocktails().subscribe((data: Cocktail[]) => {
-      this.cocktails = data;
-      this.filteredCocktails = data;
+    this.subs.add(this.cocktailsService.getCocktails().subscribe((cockails: Cocktail[]) => {
+      this.cocktails = cockails;
+      this.filteredCocktails = cockails;
     }))
   }
 
@@ -38,6 +38,14 @@ export class CocktailsListComponent implements OnInit, OnDestroy {
 
   isFavourite(id: string): boolean{
     return this.cocktailsService.cocktailsFavourites().indexOf(id) > -1;
+  }
+
+  filterCocktails(text: string){
+    if (text){
+      this.filteredCocktails = this.cocktails.filter((cocktail: Cocktail) => cocktail.name && cocktail.name.toLowerCase().indexOf(text.toLowerCase()) > -1);
+    } else {
+      this.filteredCocktails = this.cocktails;
+    }
   }
 
   ngOnDestroy(): void {

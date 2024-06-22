@@ -11,8 +11,8 @@ export class CocktailsService {
 
   constructor(private http: HttpClient) {
     effect(() => {
-      const cocktailsIdString = this.cocktailsFavourites().join("|")
-      localStorage.setItem("cocktailsFavourites", cocktailsIdString);
+      const cocktailsIdstring = this.cocktailsFavourites().join("|")
+      localStorage.setItem("cocktailsFavourites", cocktailsIdstring);
     })
   }
 

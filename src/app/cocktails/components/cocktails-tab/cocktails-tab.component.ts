@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cocktail } from '../../../models/cocktail.model';
 import { RouterModule } from '@angular/router';
 
