@@ -1,4 +1,6 @@
 <div class="cocktail-filter">
-    <h2>Filter Cocktail</h2>
-    <input type="text" #filter (keyup)="onChangeValue(filter.value)" />
+    <form [formGroup]="filterFormGroup">
+        <label for="filterCocktail">Filter Cocktail</label>
+        <input type="text" id="filterCocktail" #filter formControlName="filterInput" />
+    </form>
 </div>

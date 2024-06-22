@@ -40,7 +40,7 @@ export class CocktailsListComponent implements OnInit, OnDestroy {
     return this.cocktailsService.cocktailsFavourites().indexOf(id) > -1;
   }
 
-  filterCocktails(text: string){
+  filterCocktails(text: string): void{
     if (text){
       this.filteredCocktails = this.cocktails.filter((cocktail: Cocktail) => cocktail.name && cocktail.name.toLowerCase().indexOf(text.toLowerCase()) > -1);
     } else {
