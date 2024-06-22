@@ -1,4 +1,4 @@
-import { Component, OnInit, Signal, WritableSignal, computed, effect, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, Signal, WritableSignal, computed, effect, signal } from '@angular/core';
 import { CocktailsService } from '../../services/cocktails.service';
 import { Subscription } from 'rxjs';
 import { Cocktail } from '../../models/cocktail.model';
@@ -13,32 +13,34 @@ import { CommonModule } from '@angular/common';
   templateUrl: './cocktails-list.component.html',
   styleUrl: './cocktails-list.component.scss'
 })
-export class CocktailsListComponent implements OnInit {
-  cocktailsFavourites: WritableSignal<string[]> = signal(localStorage.getItem("cocktailsFavourites")?.split("|") ?? []);
+export class CocktailsListComponent implements OnInit, OnDestroy {
+  
   private subs: Subscription = new Subscription();
   cocktails: Cocktail[];
   filteredCocktails: Cocktail[];
-  constructor(private cocktailsService: CocktailsService){
-    effect(() => {
-      const cocktailsIdString = this.cocktailsFavourites().join("|")
-      localStorage.setItem("cocktailsFavourites", cocktailsIdString);
-    })
-  }
+
+  constructor(private cocktailsService: CocktailsService){}
+
   ngOnInit(): void {
     this.subs.add(this.cocktailsService.getCocktails().subscribe((data: Cocktail[]) => {
       this.cocktails = data;
       this.filteredCocktails = data;
     }))
-
-    this.subs.add(this.cocktailsService.getCocktailsDetail("12560").subscribe((data: Cocktail) => {
-      console.log(data);
-    }))
   }
+
   setFavourite(id: string, favourite: boolean): void{
     if (favourite){
-      this.cocktailsFavourites.set([...this.cocktailsFavourites(),id]);
+      this.cocktailsService.cocktailsFavourites.set([...this.cocktailsService.cocktailsFavourites(),id]);
     } else {
-      this.cocktailsFavourites.set(this.cocktailsFavourites().filter((cocktailId: string) => cocktailId !== id));
+      this.cocktailsService.cocktailsFavourites.set(this.cocktailsService.cocktailsFavourites().filter((cocktailId: string) => cocktailId !== id));
     }
+  }
+
+  isFavourite(id: string): boolean{
+    return this.cocktailsService.cocktailsFavourites().indexOf(id) > -1;
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

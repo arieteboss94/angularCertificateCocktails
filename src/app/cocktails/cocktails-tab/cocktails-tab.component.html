@@ -4,7 +4,7 @@
         <div class="cocktail-star" (click)="onClickStar()">
             <span class="icon-star" [class.active]="isFavourite" id="star-{{cocktail.id}}" ></span>
         </div>
-        <h1 class="cocktail-name">{{cocktail.name}}</h1>
+        <a routerLink="/cocktails/{{cocktail.id}}" class="cocktail-name">{{cocktail.name}}</a>
         <div class="cocktail-type" [class.alcoholic]="cocktail.isAlcoholic">
             <span class="cocktail-type-text">{{cocktail.isAlcoholic ? "Alcoholic" : "Non Alcoholic"}}</span>
         </div>
