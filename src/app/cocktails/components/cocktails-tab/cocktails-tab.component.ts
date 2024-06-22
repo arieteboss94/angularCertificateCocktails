@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
-import { Cocktail } from '../../models/cocktail.model';
+import { Cocktail } from '../../../models/cocktail.model';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class CocktailsTabComponent implements OnInit {
   cocktailIngredients: string;
 
   ngOnInit(): void {
-    this.cocktailIngredients = this.cocktail.ingredients.join(" | ");
+    this.cocktailIngredients = this.cocktail.ingredients.join(", ");
   }
 
   onClickStar(): void{

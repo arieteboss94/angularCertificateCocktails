@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit, Signal, WritableSignal, computed, effect,
 import { CocktailsService } from '../../services/cocktails.service';
 import { Subscription } from 'rxjs';
 import { Cocktail } from '../../models/cocktail.model';
-import { CocktailsFilterComponent } from '../cocktails-filter/cocktails-filter.component';
-import { CocktailsTabComponent } from '../cocktails-tab/cocktails-tab.component';
+import { CocktailsFilterComponent } from '../components/cocktails-filter/cocktails-filter.component';
+import { CocktailsTabComponent } from '../components/cocktails-tab/cocktails-tab.component';
 import { CommonModule } from '@angular/common';
 
 @Component({

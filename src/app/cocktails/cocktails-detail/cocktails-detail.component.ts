@@ -2,13 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CocktailsService } from '../../services/cocktails.service';
 import { Subscription } from 'rxjs';
 import { Cocktail } from '../../models/cocktail.model';
-import { ActivatedRoute, Params} from '@angular/router';
+import { ActivatedRoute, Params, RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cocktails-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './cocktails-detail.component.html',
   styleUrl: './cocktails-detail.component.scss'
 })
@@ -22,7 +22,7 @@ export class CocktailsDetailComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.subs.add(this.router.params.subscribe((params: Params)=>{
-      this.subs.add(this.cocktailsService.getCocktail(params["id"]).subscribe((cocktail: Cocktail) => {
+      this.subs.add(this.cocktailsService.getCocktail(params["cocktailid"]).subscribe((cocktail: Cocktail) => {
         this.cocktail = cocktail;
         this.isFavourite = this.cocktailsService.cocktailsFavourites().indexOf(this.cocktail.id) > -1;
       }))

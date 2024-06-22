@@ -1,15 +1,33 @@
 <section class="cocktail-detail-page" *ngIf="cocktail; else loading">
-    <img class="cocktail-image" src="{{cocktail.imageUrl}}">
-    <div class="cocktail-detail">
-        <div class="cocktail-star" (click)="setFavourite()">
-            <span class="icon-star" [class.active]="isFavourite" id="star-{{cocktail.id}}" ></span>
+    <a class="cocktail-link" routerLink="/cocktails">- Back -</a>
+    <div class="cocktail-detail-container">
+        <img class="cocktail-image" src="{{cocktail.imageUrl}}">
+        <div class="cocktail-detail">
+            <div class="cocktail-star" (click)="setFavourite()">
+                <span class="icon-star" [class.active]="isFavourite" id="star-{{cocktail.id}}" ></span>
+            </div>
+            <h1 class="cocktail-name">{{cocktail.name}}</h1>
+            <div class="cocktail-section">
+                <span class="cocktail-label">Type: </span>
+                <div class="cocktail-type" [class.alcoholic]="cocktail.isAlcoholic">
+                    <span class="cocktail-type-text">{{cocktail.isAlcoholic ? "Alcoholic" : "Non Alcoholic"}}</span>
+                </div>
+            </div>
+            <div class="cocktail-section">
+                <span class="cocktail-label">ingredients: </span>
+                <ul class="cocktail-ingredients">
+                    <li *ngFor="let ingredient of cocktail.ingredients">{{ingredient}}</li>
+                </ul>
+            </div>
+            <div class="cocktail-section">
+                <span class="cocktail-label">Instructions: </span>
+                <span class="cocktail-ingredients">{{cocktail.instructions}}</span>
+            </div>
+            
+            
         </div>
-        <h1 class="cocktail-name">{{cocktail.name}}</h1>
-        <div class="cocktail-type" [class.alcoholic]="cocktail.isAlcoholic">
-            <span class="cocktail-type-text">{{cocktail.isAlcoholic ? "Alcoholic" : "Non Alcoholic"}}</span>
-        </div>
-        <span class="cocktail-ingredients">-</span>
     </div>
+   
 </section>
 <ng-template #loading>
     Loading...
