@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './cocktails-filter.component.html',
   styleUrl: './cocktails-filter.component.scss'
 })
-export class CocktailsFilterComponent implements OnInit{
+export class CocktailsFilterComponent implements OnInit, OnDestroy{
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
   subs: Subscription = new Subscription();
   filterFormGroup = new FormGroup({
@@ -18,8 +18,12 @@ export class CocktailsFilterComponent implements OnInit{
 
   ngOnInit(): void {
     this.subs.add(this.filterFormGroup.controls["filterInput"].valueChanges.subscribe((text: string | null) => {
-      this.onChange.emit(text??"");
+      this.onChange.emit(text ?? "");
     }))
       
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

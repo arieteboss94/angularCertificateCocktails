@@ -1,6 +1,6 @@
-<section class="cocktail-detail-page" *ngIf="cocktail; else loading">
-    <a class="cocktail-link" routerLink="/cocktails">- Back -</a>
-    <div class="cocktail-detail-container">
+<section class="cocktail-detail-page" >
+    <a class="cocktail-link" routerLink="/cocktails">- Back to Cocktails List -</a>
+    <div class="cocktail-detail-container" *ngIf="cocktail; else loading">
         <img class="cocktail-image" src="{{cocktail.imageUrl}}">
         <div class="cocktail-detail">
             <div class="cocktail-star" (click)="setFavourite()">
@@ -30,5 +30,5 @@
    
 </section>
 <ng-template #loading>
-    Loading...
+    <h1>Loading</h1>
 </ng-template>

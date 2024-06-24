@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, Signal, WritableSignal, computed, effect, signal } from '@angular/core';
 import { CocktailsService } from '../../services/cocktails.service';
-import { Subscription } from 'rxjs';
+import { Subscription, retry } from 'rxjs';
 import { Cocktail } from '../../models/cocktail.model';
 import { CocktailsFilterComponent } from '../components/cocktails-filter/cocktails-filter.component';
 import { CocktailsTabComponent } from '../components/cocktails-tab/cocktails-tab.component';
@@ -22,7 +22,7 @@ export class CocktailsListComponent implements OnInit, OnDestroy {
   constructor(private cocktailsService: CocktailsService){}
 
   ngOnInit(): void {
-    this.subs.add(this.cocktailsService.getCocktails().subscribe((cockails: Cocktail[]) => {
+    this.subs.add(this.cocktailsService.getCocktails().pipe(retry(2)).subscribe((cockails: Cocktail[]) => {
       this.cocktails = cockails;
       this.filteredCocktails = cockails;
     }))

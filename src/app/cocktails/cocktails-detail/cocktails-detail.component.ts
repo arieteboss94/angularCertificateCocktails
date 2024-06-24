@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CocktailsService } from '../../services/cocktails.service';
-import { Subscription } from 'rxjs';
+import { Subscription, catchError, retry } from 'rxjs';
 import { Cocktail } from '../../models/cocktail.model';
 import { ActivatedRoute, Params, RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -22,7 +22,7 @@ export class CocktailsDetailComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.subs.add(this.router.params.subscribe((params: Params)=>{
-      this.subs.add(this.cocktailsService.getCocktail(params["cocktailid"]).subscribe((cocktail: Cocktail) => {
+      this.subs.add(this.cocktailsService.getCocktail(params["cocktailid"]).pipe(retry(2)).subscribe((cocktail: Cocktail) => {
         this.cocktail = cocktail;
         this.isFavourite = this.cocktailsService.cocktailsFavourites().indexOf(this.cocktail.id) > -1;
       }))

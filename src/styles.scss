@@ -7,6 +7,9 @@
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+  &:visited, &:hover, &:focus {
+    color: black;
+  }
 }
 
 span.icon-star {
