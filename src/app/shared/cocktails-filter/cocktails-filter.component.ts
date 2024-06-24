@@ -1,11 +1,9 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cocktails-filter',
-  standalone: true,
-  imports: [ReactiveFormsModule],
   templateUrl: './cocktails-filter.component.html',
   styleUrl: './cocktails-filter.component.scss'
 })

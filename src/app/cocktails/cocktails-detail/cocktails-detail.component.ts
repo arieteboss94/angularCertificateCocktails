@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CocktailsService } from '../../services/cocktails.service';
-import { Subscription, catchError, retry } from 'rxjs';
+import { Subscription, retry } from 'rxjs';
 import { Cocktail } from '../../models/cocktail.model';
-import { ActivatedRoute, Params, RouterModule} from '@angular/router';
+import { ActivatedRoute, Params, RouterLink} from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cocktails-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './cocktails-detail.component.html',
   styleUrl: './cocktails-detail.component.scss'
 })

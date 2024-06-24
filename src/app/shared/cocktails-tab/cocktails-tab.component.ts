@@ -1,11 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cocktail } from '../../../models/cocktail.model';
-import { RouterModule } from '@angular/router';
+import { Cocktail } from '../../models/cocktail.model';
 
 @Component({
   selector: 'app-cocktails-tab',
-  standalone: true,
-  imports: [RouterModule],
   templateUrl: './cocktails-tab.component.html',
   styleUrl: './cocktails-tab.component.scss'
 })

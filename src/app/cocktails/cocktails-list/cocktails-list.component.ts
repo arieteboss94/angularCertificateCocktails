@@ -2,14 +2,13 @@ import { Component, OnDestroy, OnInit, Signal, WritableSignal, computed, effect,
 import { CocktailsService } from '../../services/cocktails.service';
 import { Subscription, retry } from 'rxjs';
 import { Cocktail } from '../../models/cocktail.model';
-import { CocktailsFilterComponent } from '../components/cocktails-filter/cocktails-filter.component';
-import { CocktailsTabComponent } from '../components/cocktails-tab/cocktails-tab.component';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-cocktails-list',
   standalone: true,
-  imports: [CommonModule, CocktailsFilterComponent, CocktailsTabComponent],
+  imports: [CommonModule, SharedModule],
   templateUrl: './cocktails-list.component.html',
   styleUrl: './cocktails-list.component.scss'
 })
