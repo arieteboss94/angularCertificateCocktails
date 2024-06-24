@@ -4,6 +4,7 @@ import { CocktailsFilterComponent } from './cocktails-filter/cocktails-filter.co
 import { CocktailsTabComponent } from './cocktails-tab/cocktails-tab.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { CocktailsPipe } from './cocktails.pipe';
 
 @NgModule({
   declarations: [    
@@ -13,7 +14,8 @@ import { RouterLink } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    CocktailsPipe
   ],
   exports: [
     CommonModule,

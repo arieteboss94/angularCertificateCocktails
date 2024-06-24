@@ -8,6 +8,6 @@
         <div class="cocktail-type" [class.alcoholic]="cocktail.isAlcoholic">
             <span class="cocktail-type-text">{{cocktail.isAlcoholic ? "Alcoholic" : "Non Alcoholic"}}</span>
         </div>
-        <span class="cocktail-ingredients">{{cocktailIngredients}}</span>
+        <span class="cocktail-ingredients">{{cocktail.ingredients | cocktails}}</span>
     </div>
 </div>
