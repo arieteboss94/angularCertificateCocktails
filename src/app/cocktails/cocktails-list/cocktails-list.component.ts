@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
 @Component({
-  selector: 'app-cocktails-list',
+  selector: 'cocktails-list',
   standalone: true,
   imports: [CommonModule, SharedModule],
   templateUrl: './cocktails-list.component.html',

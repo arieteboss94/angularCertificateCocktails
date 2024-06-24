@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-cocktails-filter',
+  selector: 'cocktails-filter',
   templateUrl: './cocktails-filter.component.html',
   styleUrl: './cocktails-filter.component.scss'
 })

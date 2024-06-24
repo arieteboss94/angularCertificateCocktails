@@ -6,7 +6,7 @@ import { ActivatedRoute, Params, RouterLink} from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-cocktails-detail',
+  selector: 'cocktails-detail',
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './cocktails-detail.component.html',

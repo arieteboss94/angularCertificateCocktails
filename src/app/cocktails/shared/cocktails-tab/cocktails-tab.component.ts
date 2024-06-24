@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cocktail } from '../cocktail.model';
 
 @Component({
-  selector: 'app-cocktails-tab',
+  selector: 'cocktails-tab',
   templateUrl: './cocktails-tab.component.html',
   styleUrl: './cocktails-tab.component.scss'
 })
