@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit, Signal, WritableSignal, computed, effect, signal } from '@angular/core';
-import { CocktailsService } from '../../services/cocktails.service';
+import { CocktailsService } from '../shared/cocktails.service';
 import { Subscription, retry } from 'rxjs';
-import { Cocktail } from '../../models/cocktail.model';
+import { Cocktail } from '../shared/cocktail.model';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-cocktails-list',
@@ -17,6 +17,7 @@ export class CocktailsListComponent implements OnInit, OnDestroy {
   private subs: Subscription = new Subscription();
   cocktails: Cocktail[];
   filteredCocktails: Cocktail[];
+  filterText: string;
 
   constructor(private cocktailsService: CocktailsService){}
 
@@ -40,6 +41,7 @@ export class CocktailsListComponent implements OnInit, OnDestroy {
   }
 
   filterCocktails(text: string): void{
+    this.filterText = text;
     if (text){
       this.filteredCocktails = this.cocktails.filter((cocktail: Cocktail) => cocktail.name && cocktail.name.toLowerCase().indexOf(text.toLowerCase()) > -1);
     } else {

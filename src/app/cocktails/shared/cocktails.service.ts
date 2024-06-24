@@ -1,6 +1,6 @@
 import { Injectable, WritableSignal, effect, signal } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cocktail } from '../models/cocktail.model';
+import { Cocktail } from '../shared/cocktail.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

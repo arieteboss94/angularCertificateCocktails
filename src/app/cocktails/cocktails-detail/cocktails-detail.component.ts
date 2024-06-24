@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CocktailsService } from '../../services/cocktails.service';
+import { CocktailsService } from '../shared/cocktails.service'; 
 import { Subscription, retry } from 'rxjs';
-import { Cocktail } from '../../models/cocktail.model';
+import { Cocktail } from '../shared/cocktail.model';
 import { ActivatedRoute, Params, RouterLink} from '@angular/router';
 import { CommonModule } from '@angular/common';
 

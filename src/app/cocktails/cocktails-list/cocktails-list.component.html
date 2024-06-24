@@ -5,6 +5,10 @@
     </div>
 
     <ng-template #noCocktail>
-        <h1>No cocktails available</h1>
+        <h1 *ngIf="!!filterText; else loading">No cocktails available for this filter</h1>
+        <ng-template #loading>
+            <h1>Loading...</h1>
+        </ng-template>
     </ng-template>
+    
 </section>

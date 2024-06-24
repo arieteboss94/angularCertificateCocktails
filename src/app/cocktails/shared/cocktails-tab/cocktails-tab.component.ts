@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cocktail } from '../../models/cocktail.model';
+import { Cocktail } from '../cocktail.model';
 
 @Component({
   selector: 'app-cocktails-tab',
