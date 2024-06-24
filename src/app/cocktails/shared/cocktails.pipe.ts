@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CocktailsPipe implements PipeTransform {
 
-  transform(value: string[], ...args: unknown[]): unknown {
+  transform(value: string[]): string {
     return value.join(', ');
   }
 
